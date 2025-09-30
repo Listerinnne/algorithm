@@ -1,26 +1,21 @@
-import java.util.Scanner;
-import java.lang.Math;
+import java.util.*;
 
 public class BOJ_4375_1 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        int digit = (int)Math.log10(num) + 1;   //입력받은 수의 자릿수
-        long drainage = 1;   //1로만 이루어진 수
 
-        // n보다 크거나 같은, 최소한의 1로만 이루어진 수를 구함
-        for(int i=1; i<digit; i++){
-            drainage = drainage * 10 + 1;
+        while(sc.hasNext()){
+            int n =  sc.nextInt();
+            int base = 1;   // 1로만 이루어진 숫자
+            int cnt = 1;    // 자릿수
+
+            while((base = base%n) != 0){
+                cnt++;
+                base = base * 10 + 1;
+            }
+            System.out.println(cnt);
         }
-        // n의 배수 찾기
-        for(;;){
-            // 찾았을 경우
-            if(drainage % num == 0) break;
-            // 못 찾았을 경우
-            drainage = drainage * 10 + 1;
-            digit++;
-        }
-        System.out.println(digit);
+
     }
 
 }
