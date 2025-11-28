@@ -16,7 +16,6 @@ public class BOJ_17425_약수의_합 {
         final int MAX = 1000001;	// 0부터 시작하므로 인덱스 맞춰주기 위함
         long[] fx = new long[MAX];
         long[] gx = new long[MAX];
-
         Arrays.fill(fx, 1); 	//1은 모두의 약수이므로 미리 채워둠
 
         for(int i=2; i<MAX; i++) {
